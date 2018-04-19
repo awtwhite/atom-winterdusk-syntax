@@ -1,0 +1,15 @@
+{
+    "name": "winterdusk-syntax",
+    "theme": "syntax",
+    "version": "0.0.0",
+    "description": "An dark syntax theme for Atom using a subtle colour palette.",
+    "keywords": [
+        "syntax",
+        "theme"
+    ],
+    "repository": "https://github.com/awtwhite/atom-winterdusk-syntax",
+    "license": "MIT",
+    "engines": {
+        "atom": ">=1.0.0 <2.0.0"
+    }
+}

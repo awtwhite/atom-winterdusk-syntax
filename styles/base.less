@@ -1,0 +1,521 @@
+@import 'colors';
+@import 'syntax-variables';
+
+atom-text-editor {
+    background-color: @darker-gray;
+    color: @subtle-gray;
+
+    .wrap-guide {
+        background-color: @syntax-wrap-guide-color;
+    }
+
+    .indent-guide {
+        color: @syntax-indent-guide-color;
+    }
+
+    .invisible-character {
+        color: @syntax-invisible-character-color;
+    }
+
+    .gutter {
+        background-color: @syntax-gutter-background-color;
+        color: @syntax-gutter-text-color;
+
+        .line-number {
+
+            &.cursor-line {
+                background-color: @syntax-gutter-background-color-selected;
+                color: @syntax-gutter-text-color-selected;
+            }
+
+            &.cursor-line-no-selection {
+                color: @syntax-gutter-text-color-selected;
+            }
+        }
+    }
+
+    .fold-marker:after,
+    .gutter .line-number.folded,
+    .gutter .line-number:after {
+        background-color: lighten(@syntax-gutter-background-color, 7%);
+    }
+
+    .fold-marker:after {
+        font-size: 1.1em; // increase icon size
+        padding: 0 5px; // even space around icon
+        color: @pink; // icon color
+    }
+
+    .invisible {
+        color: @gray;
+    }
+
+    .cursor {
+        color: @syntax-cursor-color;
+    }
+
+    .selection .region {
+        background-color: @syntax-selection-color;
+    }
+}
+
+
+.search-results .syntax--marker .region,
+atom-text-editor .search-results .syntax--marker .region {
+    background-color: transparent;
+    border: 1px solid @syntax-result-marker-color;
+}
+
+.search-results .syntax--marker.current-result .region,
+atom-text-editor .search-results .syntax--marker.current-result .region {
+    border: 1px solid @syntax-result-marker-color-selected;
+}
+
+
+
+.syntax--comment {
+    color: @dark-gray;
+}
+
+
+
+.syntax--keyword {
+    color: @gold;
+
+    &.syntax--control {
+        color: @rose;
+    }
+
+    &.syntax--operator {
+        color: @light-gray;
+    }
+
+    &.syntax--operator.syntax--logical {
+        color: @subtle-gray;
+    }
+
+    &.syntax--operator.syntax--ternary {
+        color: @blue;
+    }
+
+    &.syntax--assignment {
+        color: @light-gray;
+    }
+
+    &.syntax--other.syntax--special-method {
+        // color: @cyan;
+    }
+
+    &.syntax--other.syntax--unit {
+        // color: @rose;
+    }
+}
+
+
+
+.syntax--storage {
+    color: @cyan;
+
+    &.syntax--type.syntax--function {
+        color: saturate(@blue, 10%);
+    }
+}
+
+
+
+.syntax--entity {
+    color: @violet;
+
+    // &.syntax--name.syntax--function {
+    //     color: @cyan;
+    // }
+    //
+    // &.syntax--name.syntax--type {
+    //     color: @gold;
+    //     text-decoration: underline;
+    // }
+    //
+    // &.syntax--other.syntax--inherited-class {
+    //     color: @mint;
+    // }
+
+    &.syntax--name.syntax--class,
+    &.syntax--name.syntax--type.syntax--class {
+        color: lighten(@violet, 15%);
+    }
+
+    // &.syntax--name.syntax--section {
+    //     color: @cyan;
+    // }
+
+    .syntax--tag {
+        color: lime;
+    }
+
+    &.syntax--name.syntax--tag {
+        color: @rose;
+    }
+
+    // &.syntax--other.syntax--attribute-name {
+    //     color: @cyan;
+    //
+    //     &.syntax--id {
+    //         color: lighten(@cyan, 10%);
+    //     }
+    // }
+}
+
+
+
+//IMPORTANT keep above .syntax--constant
+.syntax--variable {
+    color: @violet;
+
+    // &.syntax--interpolation {
+    //     color: @rose;
+    // }
+
+    &.syntax--parameter.syntax--function {
+        color: @light-gray;
+    }
+}
+
+
+
+.syntax--constant {
+    color: lighten(@violet, 4%);
+
+    &.syntax--numeric {
+        color: @cyan;
+    }
+
+    &.syntax--character.syntax--escape {
+        // color: @cyan;
+    }
+
+    &.syntax--other.syntax--color {
+        // color: @cyan;
+    }
+
+    &.syntax--other.syntax--symbol {
+        // color: @mint;
+    }
+}
+
+
+// .syntax--invalid.illegal {
+//     background-color: @red;
+//     color: @off-white;
+// }
+
+
+
+.syntax--string {
+    color: lighten(@peach, 8%);
+
+    &.syntax--other.syntax--link {
+        color: @red;
+    }
+}
+
+
+
+.syntax--regexp {
+    color: @dark-gray;
+    background-color: #2b2b2b;
+
+    .syntax--regexp {
+        background-color: transparent; // reset background color on nested .syntax--regexp classes
+    }
+
+    .syntax--begin {
+        color: @dark-gray;
+    }
+
+    .syntax--end {
+        color: @dark-gray;
+    }
+
+    // .syntax--group {
+    //     background-color: #e7fef2;
+    // }
+
+    // .syntax--set {
+    //     background-color: #2b2b2b;
+    // }
+
+    .syntax--keyword.syntax--other {
+        color: @dark-gray;
+    }
+}
+
+
+
+// .syntax--punctuation {
+//     &.syntax--definition {
+//         &.syntax--comment {
+//             color: @light-gray;
+//         }
+//
+//         &.syntax--array,
+//         &.syntax--parameters,
+//         &.syntax--string,
+//         &.syntax--variable {
+//             color: @dark-gray;
+//         }
+//
+//         &.syntax--heading,
+//         &.syntax--identity {
+//             color: @cyan;
+//         }
+//
+//         &.syntax--bold {
+//             color: @gold;
+//             font-weight: bold;
+//         }
+//
+//         &.syntax--italic {
+//             color: @cyan;
+//             font-style: italic;
+//         }
+//     }
+//
+//     &.syntax--section.syntax--embedded {
+//         color: @red;
+//     }
+//
+// }
+
+
+
+// .syntax--support {
+//     &.syntax--class {
+//         color: @gold;
+//     }
+//
+//     &.syntax--function {
+//         color: @cyan;
+//
+//         &.syntax--any-method {
+//             color: @cyan;
+//         }
+//     }
+// }
+
+
+// .syntax--meta {
+//     &.syntax--class {
+//         color: @gold;
+//     }
+//
+//     &.syntax--link {
+//         color: @salmon;
+//     }
+//
+//     &.syntax--require {
+//         color: @cyan;
+//     }
+//
+//     &.syntax--selector {
+//         color: @cyan;
+//     }
+//
+//     &.syntax--separator {
+//         background-color: @gray;
+//         color: @dark-gray;
+//     }
+// }
+
+// .syntax--none {
+//     color: @dark-gray;
+// }
+
+// .syntax--markup {
+//     &.syntax--bold {
+//         color: @salmon;
+//         font-weight: bold;
+//     }
+//
+//     &.syntax--changed {
+//         color: @cyan;
+//     }
+//
+//     &.syntax--deleted {
+//         color: @red;
+//     }
+//
+//     &.syntax--italic {
+//         color: @cyan;
+//         font-style: italic;
+//     }
+//
+//     &.syntax--heading .syntax--punctuation.syntax--definition.syntax--heading {
+//         color: @cyan;
+//     }
+//
+//     &.syntax--inserted {
+//         color: @mint;
+//     }
+//
+//     &.syntax--list {
+//         color: @red;
+//     }
+//
+//     &.syntax--quote {
+//         color: @salmon;
+//     }
+//
+//     &.syntax--raw.syntax--inline {
+//         color: @mint;
+//     }
+// }
+
+
+.syntax--source.syntax--gfm .syntax--markup {
+    -webkit-font-smoothing: auto;
+
+//     &.heading {
+//         color: @mint;
+//     }
+}
+
+atom-text-editor .scroll-view,
+atom-text-editor[mini] .scroll-view {
+    padding-left: 1px;
+}
+
+
+.syntax--html {
+
+    .syntax--tag.syntax--html {
+        color: @gray;
+
+        &.syntax--begin,
+        &.syntax--end {
+            color: @rose;
+        }
+    }
+
+    .syntax--entity {
+
+        &.syntax--name.syntax--tag {
+            color: @rose;
+        }
+
+        &.syntax--attribute-name {
+            color: @peach;
+
+            &.syntax--id {
+                color: lighten(@peach, 10%);
+            }
+        }
+    }
+
+    .syntax--string {
+        color: @violet;
+
+        &.syntax--begin,
+        &.syntax--end {
+            color: @gray;
+        }
+    }
+
+}
+
+.syntax--css {
+
+    &.syntax--key-value {
+        color: @gray;
+    }
+
+    .syntax--string {
+        color: @violet;
+
+        &.syntax--begin,
+        &.syntax--end {
+            color: @gray;
+        }
+    }
+
+    .syntax--keyword {
+        &.syntax--unit {
+        color: desaturate(@peach, 40%);
+        }
+    }
+
+    .syntax--entity {
+
+        &.syntax--begin,
+        &.syntax--end {
+            color: @gray;
+        }
+
+        &.syntax--other.syntax--attribute-name {
+            color: @violet;
+
+            &.syntax--id {
+                color: lighten(@violet, 10%);
+            }
+
+            &.syntax--mixin {
+                color: darken(@violet, 10%);
+            }
+
+            &.syntax--attribute {
+                color: @peach;
+            }
+        }
+    }
+
+    .syntax--constant {
+        color: @peach;
+
+        &.syntax--property-value {
+            color: @rose;
+        }
+    }
+
+}
+
+
+.syntax--less,
+.syntax--scss {
+    &.syntax--variable {
+        color: @cyan;
+    }
+
+    &.syntax--at-rule,
+    &.syntax--at-rule .syntax--keyword {
+        color: @mint;
+    }
+
+    &.syntax--function {
+        color: @violet;
+    }
+}
+
+
+.syntax--json {
+
+    .syntax--string {
+        color: @mint;
+
+        &.syntax--begin,
+        &.syntax--end {
+            color: @gray;
+        }
+    }
+
+    &.syntax--value {
+        color: @subtle-gray;
+
+        > .syntax--string { // ">" to correct inheritance
+            color: inherit;
+        }
+    }
+
+    &.syntax--separator {
+        color: @gray;
+    }
+
+}

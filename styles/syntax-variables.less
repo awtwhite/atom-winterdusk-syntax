@@ -1,0 +1,38 @@
+@import 'colors';
+
+// This defines all syntax variables that syntax themes must implement when they
+// include a syntax-variables.less file.
+
+// General colors
+@syntax-text-color:                       @light-gray; //Was: @dark-gray;
+@syntax-cursor-color:                     @subtle-gray; //Was: @darker-gray;
+@syntax-selection-color:                  lighten(@highlight-fill, 12%); // code selection color
+@syntax-background-color:                 @darker-gray; //Was: @off-white;
+@syntax-background-color-selected:        @highlight-fill; // general text file selection color
+
+// Guide colors
+@syntax-wrap-guide-color:                 @darker-gray; //Was: @subtle-gray;
+@syntax-indent-guide-color:               @darker-gray; //Was: @subtle-gray;
+@syntax-invisible-character-color:        @darker-gray; //Was: @subtle-gray;
+
+// For find and replace markers
+@syntax-result-marker-color:              @light-gray; //Was: @light-gray;
+@syntax-result-marker-color-selected:     @dark-gray; //Was: @dark-gray;
+
+// Gutter colors
+@syntax-gutter-text-color:                @dark-gray; //Was: @dark-gray;
+@syntax-gutter-text-color-selected:       @dark-gray; //Was: @dark-gray;
+@syntax-gutter-background-color:          @darker-gray; //Was: @off-white;
+@syntax-gutter-background-color-selected: saturate(@highlight-fill, 20%);
+
+// For git diff info. i.e. in the gutter
+@syntax-color-renamed:                    @cyan;
+@syntax-color-added:                      @mint;
+@syntax-color-modified:                   @gold;
+@syntax-color-removed:                    @red;
+
+// linting colors
+@text-color-info:                         @syntax-color-renamed;
+@text-color-success:                      @syntax-color-added;
+@text-color-warning:                      @syntax-color-modified;
+@text-color-error:                        @syntax-color-removed;
