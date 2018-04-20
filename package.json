@@ -1,7 +1,7 @@
 {
   "name": "winterdusk-syntax",
   "theme": "syntax",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "An dark syntax theme for Atom using a subtle colour palette.",
   "keywords": [
     "syntax",
