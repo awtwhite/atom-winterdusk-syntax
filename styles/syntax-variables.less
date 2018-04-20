@@ -4,26 +4,26 @@
 // include a syntax-variables.less file.
 
 // General colors
-@syntax-text-color:                       @light-gray; //Was: @dark-gray;
-@syntax-cursor-color:                     @subtle-gray; //Was: @darker-gray;
-@syntax-selection-color:                  lighten(@highlight-fill, 12%); // code selection color
-@syntax-background-color:                 @darker-gray; //Was: @off-white;
+@syntax-text-color:                       @light-gray;
+@syntax-cursor-color:                     @subtle-gray;
+@syntax-selection-background-color:       @highlight-fill; // code selection color
+@syntax-background-color:                 @darker-gray;
 @syntax-background-color-selected:        @highlight-fill; // general text file selection color
 
 // Guide colors
-@syntax-wrap-guide-color:                 @darker-gray; //Was: @subtle-gray;
-@syntax-indent-guide-color:               @darker-gray; //Was: @subtle-gray;
-@syntax-invisible-character-color:        @darker-gray; //Was: @subtle-gray;
+@syntax-wrap-guide-color:                 @darker-gray;
+@syntax-indent-guide-color:               @darker-gray;
+@syntax-invisible-character-color:        @darker-gray;
 
 // For find and replace markers
-@syntax-result-marker-color:              @light-gray; //Was: @light-gray;
-@syntax-result-marker-color-selected:     @dark-gray; //Was: @dark-gray;
+@syntax-result-marker-color:              @light-gray;
+@syntax-result-marker-color-selected:     @dark-gray;
 
 // Gutter colors
-@syntax-gutter-text-color:                @dark-gray; //Was: @dark-gray;
-@syntax-gutter-text-color-selected:       @dark-gray; //Was: @dark-gray;
-@syntax-gutter-background-color:          @darker-gray; //Was: @off-white;
-@syntax-gutter-background-color-selected: saturate(@highlight-fill, 20%);
+@syntax-gutter-text-color:                @dark-gray;
+@syntax-gutter-text-color-selected:       @dark-gray;
+@syntax-gutter-background-color:          @syntax-background-color;
+@syntax-gutter-background-color-selected: @syntax-selection-background-color;
 
 // For git diff info. i.e. in the gutter
 @syntax-color-renamed:                    @cyan;
