@@ -1,0 +1,24 @@
+
+autocomplete-suggestion-list {
+
+    .character-match {
+        color: @off-white; // hightlight for matched charaters in listed items
+    }
+
+    &.select-list.popover-list {
+        border: 1px solid darken(@syntax-background-color, 3%); // help separate panel from atom UI
+        background: darken(@syntax-background-color, 2%); // darken panel background
+        color: @syntax-text-color; // panel default text color
+
+        ol.list-group {
+
+            li.selected {
+                background: rgba(200,255,255, 0.1); // selected item background
+            }
+        }
+
+        .suggestion-description {
+            background: rgba(0,0,0, 0.1); // darken background
+        }
+    }
+}
