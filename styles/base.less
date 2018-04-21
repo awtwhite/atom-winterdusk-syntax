@@ -1,8 +1,7 @@
-@import 'colors';
 @import 'syntax-variables';
 
 atom-text-editor {
-    background-color: @darker-gray;
+    background-color: line;// @darker-gray;
     color: @subtle-gray;
 
     .wrap-guide {
@@ -22,32 +21,31 @@ atom-text-editor {
         color: @syntax-gutter-text-color;
 
         .line-number {
+            opacity: 1; // reset atom default styles
 
             &.cursor-line {
                 background-color: @syntax-gutter-background-color-selected;
                 color: @syntax-gutter-text-color-selected;
             }
-
-            &.cursor-line-no-selection {
-                color: @syntax-gutter-text-color-selected;
-            }
         }
     }
 
-    .fold-marker:after,
-    .gutter .line-number.folded,
+    .gutter .line-number.folded {
+        background-color: lighten(@syntax-gutter-background-color, 3%);
+    }
     .gutter .line-number:after {
-        background-color: lighten(@syntax-gutter-background-color, 7%);
+        background-color: darken(@syntax-gutter-background-color, 4%);
     }
 
     .fold-marker:after {
-        font-size: 1.1em; // increase icon size
-        padding: 0 5px; // even space around icon
-        color: @pink; // icon color
+        font-size: 1.1em; // icon size
+        padding: 0 5px 3px; // even out the space around icon
+        color: @mid-gray; // icon color
+        background-color: lighten(@syntax-gutter-background-color, 3%);
     }
 
     .invisible {
-        color: @gray;
+        color: @mid-gray;
     }
 
     .cursor {
@@ -55,10 +53,14 @@ atom-text-editor {
     }
 
     .selection .region {
-        background-color: @syntax-selection-background-color;
+        background-color: @syntax-background-color-selected;
     }
 }
 
+atom-text-editor .scroll-view,
+atom-text-editor[mini] .scroll-view {
+    padding-left: 1px;
+}
 
 .search-results .syntax--marker .region,
 atom-text-editor .search-results .syntax--marker .region {
@@ -72,12 +74,9 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
 }
 
 
-
 .syntax--comment {
     color: @dark-gray;
 }
-
-
 
 .syntax--keyword {
     color: @gold;
@@ -111,8 +110,6 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
     }
 }
 
-
-
 .syntax--storage {
     color: @cyan;
 
@@ -120,8 +117,6 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
         color: saturate(@blue, 10%);
     }
 }
-
-
 
 .syntax--entity {
     color: @violet;
@@ -149,7 +144,7 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
     // }
 
     .syntax--tag {
-        color: lime;
+        color: @lime;
     }
 
     &.syntax--name.syntax--tag {
@@ -165,9 +160,7 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
     // }
 }
 
-
-
-//IMPORTANT keep above .syntax--constant
+//IMPORTANT keep `.syntax--variable` above `.syntax--constant`
 .syntax--variable {
     color: @violet;
 
@@ -180,8 +173,7 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
     }
 }
 
-
-
+//IMPORTANT keep `.syntax--constant` below `.syntax--variable`
 .syntax--constant {
     color: lighten(@violet, 4%);
 
@@ -202,13 +194,10 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
     }
 }
 
-
 // .syntax--invalid.illegal {
 //     background-color: @red;
 //     color: @off-white;
 // }
-
-
 
 .syntax--string {
     color: lighten(@peach, 8%);
@@ -217,8 +206,6 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
         color: @red;
     }
 }
-
-
 
 .syntax--regexp {
     color: @dark-gray;
@@ -248,8 +235,6 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
         color: @dark-gray;
     }
 }
-
-
 
 // .syntax--punctuation {
 //     &.syntax--definition {
@@ -286,8 +271,6 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
 //
 // }
 
-
-
 // .syntax--support {
 //     &.syntax--class {
 //         color: @gold;
@@ -301,7 +284,6 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
 //         }
 //     }
 // }
-
 
 // .syntax--meta {
 //     &.syntax--class {
@@ -321,7 +303,7 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
 //     }
 //
 //     &.syntax--separator {
-//         background-color: @gray;
+//         background-color: @mid-gray;
 //         color: @dark-gray;
 //     }
 // }
@@ -370,152 +352,10 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
 //     }
 // }
 
-
 .syntax--source.syntax--gfm .syntax--markup {
     -webkit-font-smoothing: auto;
 
 //     &.heading {
 //         color: @mint;
 //     }
-}
-
-atom-text-editor .scroll-view,
-atom-text-editor[mini] .scroll-view {
-    padding-left: 1px;
-}
-
-
-.syntax--html {
-
-    .syntax--tag.syntax--html {
-        color: @gray;
-
-        &.syntax--begin,
-        &.syntax--end {
-            color: @rose;
-        }
-    }
-
-    .syntax--entity {
-
-        &.syntax--name.syntax--tag {
-            color: @rose;
-        }
-
-        &.syntax--attribute-name {
-            color: @peach;
-
-            &.syntax--id {
-                color: lighten(@peach, 10%);
-            }
-        }
-    }
-
-    .syntax--string {
-        color: @violet;
-
-        &.syntax--begin,
-        &.syntax--end {
-            color: @gray;
-        }
-    }
-
-}
-
-.syntax--css {
-
-    &.syntax--key-value {
-        color: @gray;
-    }
-
-    .syntax--string {
-        color: @violet;
-
-        &.syntax--begin,
-        &.syntax--end {
-            color: @gray;
-        }
-    }
-
-    .syntax--keyword {
-        &.syntax--unit {
-        color: desaturate(@peach, 40%);
-        }
-    }
-
-    .syntax--entity {
-
-        &.syntax--begin,
-        &.syntax--end {
-            color: @gray;
-        }
-
-        &.syntax--other.syntax--attribute-name {
-            color: @violet;
-
-            &.syntax--id {
-                color: lighten(@violet, 10%);
-            }
-
-            &.syntax--mixin {
-                color: darken(@violet, 10%);
-            }
-
-            &.syntax--attribute {
-                color: @peach;
-            }
-        }
-    }
-
-    .syntax--constant {
-        color: @peach;
-
-        &.syntax--property-value {
-            color: @rose;
-        }
-    }
-
-}
-
-
-.syntax--less,
-.syntax--scss {
-    &.syntax--variable {
-        color: @cyan;
-    }
-
-    &.syntax--at-rule,
-    &.syntax--at-rule .syntax--keyword {
-        color: @mint;
-    }
-
-    &.syntax--function {
-        color: @violet;
-    }
-}
-
-
-.syntax--json {
-
-    .syntax--string {
-        color: @mint;
-
-        &.syntax--begin,
-        &.syntax--end {
-            color: @gray;
-        }
-    }
-
-    &.syntax--value {
-        color: @subtle-gray;
-
-        > .syntax--string { // ">" to correct inheritance
-            color: inherit;
-        }
-    }
-
-    &.syntax--separator {
-        color: @gray;
-    }
-
 }

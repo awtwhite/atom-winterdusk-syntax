@@ -1,0 +1,55 @@
+
+.syntax--css {
+
+    &.syntax--key-value {
+        color: @mid-gray;
+    }
+
+    .syntax--string {
+        color: @violet;
+
+        &.syntax--begin,
+        &.syntax--end {
+            color: @mid-gray;
+        }
+    }
+
+    .syntax--keyword {
+        &.syntax--unit {
+        color: desaturate(@peach, 40%);
+        }
+    }
+
+    .syntax--entity {
+
+        &.syntax--begin,
+        &.syntax--end {
+            color: @mid-gray;
+        }
+
+        &.syntax--other.syntax--attribute-name {
+            color: @violet;
+
+            &.syntax--id {
+                color: lighten(@violet, 10%);
+            }
+
+            &.syntax--mixin {
+                color: darken(@violet, 10%);
+            }
+
+            &.syntax--attribute {
+                color: @peach;
+            }
+        }
+    }
+
+    .syntax--constant {
+        color: @peach;
+
+        &.syntax--property-value {
+            color: @rose;
+        }
+    }
+
+}

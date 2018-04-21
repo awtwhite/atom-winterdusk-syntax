@@ -1,0 +1,37 @@
+
+.syntax--html {
+
+    .syntax--tag.syntax--html {
+        color: @mid-gray;
+
+        &.syntax--begin,
+        &.syntax--end {
+            color: @rose;
+        }
+    }
+
+    .syntax--entity {
+
+        &.syntax--name.syntax--tag {
+            color: @rose;
+        }
+
+        &.syntax--attribute-name {
+            color: @peach;
+
+            &.syntax--id {
+                color: lighten(@peach, 10%);
+            }
+        }
+    }
+
+    .syntax--string {
+        color: @violet;
+
+        &.syntax--begin,
+        &.syntax--end {
+            color: @mid-gray;
+        }
+    }
+
+}

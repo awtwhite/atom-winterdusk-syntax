@@ -6,24 +6,23 @@
 // General colors
 @syntax-text-color:                       @light-gray;
 @syntax-cursor-color:                     @subtle-gray;
-@syntax-selection-background-color:       @highlight-fill; // code selection color
 @syntax-background-color:                 @darker-gray;
-@syntax-background-color-selected:        @highlight-fill; // general text file selection color
+@syntax-background-color-selected:        rgba(200, 219, 255, 0.14); // selected or highlighted chunks of text
 
 // Guide colors
-@syntax-wrap-guide-color:                 @darker-gray;
-@syntax-indent-guide-color:               @darker-gray;
-@syntax-invisible-character-color:        @darker-gray;
+@syntax-wrap-guide-color:                 lighten(@syntax-background-color, 4%);
+@syntax-indent-guide-color:               lighten(@syntax-background-color, 6%);
+@syntax-invisible-character-color:        lighten(@syntax-background-color, 6%);
 
 // For find and replace markers
-@syntax-result-marker-color:              @light-gray;
+@syntax-result-marker-color:              @mid-gray;
 @syntax-result-marker-color-selected:     @dark-gray;
 
 // Gutter colors
 @syntax-gutter-text-color:                @dark-gray;
-@syntax-gutter-text-color-selected:       @dark-gray;
+@syntax-gutter-text-color-selected:       @syntax-text-color;
 @syntax-gutter-background-color:          @syntax-background-color;
-@syntax-gutter-background-color-selected: @syntax-selection-background-color;
+@syntax-gutter-background-color-selected: @syntax-background-color;
 
 // For git diff info. i.e. in the gutter
 @syntax-color-renamed:                    @cyan;

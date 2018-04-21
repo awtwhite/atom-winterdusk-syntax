@@ -1,0 +1,25 @@
+
+.syntax--json {
+
+    .syntax--string {
+        color: @mint;
+
+        &.syntax--begin,
+        &.syntax--end {
+            color: @mid-gray;
+        }
+    }
+
+    &.syntax--value {
+        color: @subtle-gray;
+
+        > .syntax--string { // ">" to correct inheritance
+            color: inherit;
+        }
+    }
+
+    &.syntax--separator {
+        color: @mid-gray;
+    }
+
+}
