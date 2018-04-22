@@ -1,0 +1,45 @@
+
+atom-text-editor .gutter {
+
+    // diffs as border colors
+    .line-number {
+
+        &.git-line-added {
+            border-left-color: fade(@lime, 30%);
+        }
+
+        &.git-line-modified {
+            border-left-color: fade(@gold, 30%);
+        }
+
+        &.git-line-renamed {
+            border-left-color: fade(@blue, 30%);
+        }
+
+        &.git-line-removed {
+            border-left-color: fade(@red, 30%);
+        }
+    }
+
+    // diffs as icons
+    &.git-diff-icon .line-number {
+
+        &.git-line-added:before {
+            color: fade(@lime, 30%);
+        }
+
+        &.git-line-modified:before {
+            color: fade(@sand, 30%);
+        }
+
+        &.git-line-renamed:before {
+            color: fade(@blue, 30%);
+        }
+
+        &.git-line-removed:before {
+            color: fade(@red, 30%);
+        }
+
+    }
+
+}
